@@ -1,0 +1,45 @@
+let questions = [
+  {category:"Action",
+  question:"Which game is known for the character 'Lara Croft'?",
+  choices:["Tomb Raider", "Super Mario", "Tetris"],
+  answer:"Tomb Raider" },
+  {category: "Puzzle",
+  question:"Which game involves matching colored blocks to clear the screen?",
+  choices:["Tetris", "Call of Duty", "FIFA"],
+  answer:"Tetris"},
+  {category: "Adventure",
+  question: "Which game is about exploring Hyrule and saving Princess Zelda?",
+  choices: ["The Legend of Zelda", "Pac-Man", "Minecraft"],
+  answer: "The Legend of Zelda"},
+  {category: "Sports",
+  question: "Which game series simulates football (soccer) matches?",
+  choices: ["FIFA", "Street Fighter", "Portal"],
+  answer: "FIFA"},
+  {category: "Strategy",
+  question: "Which game is a real-time strategy game with civilizations and armies?",choices: ["Age of Empires", "Need for Speed", "Mario Kart"],
+  answer: "Age of Empires"}
+];
+
+function getRandomQuestion(choices){
+  let randomIndex = Math.floor(Math.random() * choices.length)
+  let randomItem = choices[randomIndex]
+  return randomItem
+}
+
+function getRandomComputerChoice(choices){
+let randomIndex = Math.floor(Math.random() * choices.length)
+return choices[randomIndex]
+}
+function getResults(question, computerChoice){
+  if(computerChoice === question.answer){
+    return "The computer's choice is correct!"
+  } else {
+    return `The computer's choice is wrong. The correct answer is: ${question.answer}`
+  }
+}
+
+let randomQuestion = getRandomQuestion(questions);
+let computerChoice = getRandomComputerChoice(randomQuestion.choices);
+console.log(randomQuestion.question);       // Вывод вопроса
+console.log(computerChoice);               // Выбор компьютера
+console.log(getResults(randomQuestion, computerChoice)); // Результат
